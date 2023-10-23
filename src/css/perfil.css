@@ -1,0 +1,386 @@
+.menu{
+    width: 150px;
+    height: 1820px;
+    background-color: #D0FFF4;
+    border: gray;
+    position: fixed;
+    top: -10px;
+}
+
+.logo{
+    position: relative;
+    left: 20px;
+    top: 30px;
+    width: 100px;
+    height: 130px;
+}
+
+.boton{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+    font-size: 20px;
+    color: #ffff;
+    background-color: lightpink;
+    width: 79px;
+    height: 100px;
+}
+
+.palabras {
+    position: relative;
+    top: -5px;
+}
+
+.palabras2 {
+    position: relative;
+    top: -5px;
+    font-size: 13px;
+}
+
+.home{
+    position: relative;
+    width: 50px;
+}
+
+.boton1{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton2{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton3{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton4{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton5{
+    position: relative;
+    top: 150px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.detras{
+    z-index: 1;
+}
+
+.orden{
+    position: fixed;
+    background-color: #FFEBC3;
+    width: 600px;
+    height: 920px;
+    left: 1320px;
+    top: 2px;
+}
+
+.letras{
+    font-size: 40px;
+    position: relative;
+    left: 20px;
+    top: -15px;
+}
+
+.letras2{
+    font-size: 40px;
+    position: relative;
+    left: 20px;
+    top: -5px;
+}
+
+.letras3{
+    font-size: 40px;
+    position: relative;
+    left: 20px;
+    top: -35px;
+}
+
+.chispas{
+    border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+    width: 500px;
+    height: 35px;
+    position: relative;
+    left: 50px;
+    top: -30px;
+    background-color: #ffff;
+}
+
+.letra{
+    position: relative;
+    top: -8px;
+}
+
+.cono{
+    width: 600px;
+    border: 1px solid black;
+    height: 563px;
+    position: relative;
+    top: 25px;
+    background-color: #ffff;
+}
+
+.divsChispas{
+    position: relative;
+    top: -30px;
+}
+
+.botonesAC{
+    position: relative;
+    top: -10px;
+}
+
+.conos{
+    position: relative;
+    width: 100px;
+}
+
+.search_container {
+    position: relative;
+    display: inline-block;
+    top: 40px;
+    position: relative;
+    left: 1200px; 
+  }
+  
+  .mySearchBar {
+    padding: 10px 30px 10px 10px; /* Ajusta los valores de padding según tu diseño */
+    border: 1px solid #ccc;
+    background-color: transparent;
+    border-radius: 25px;
+    width: 350px; /* Ajusta el ancho según tus necesidades */
+    background-color: #ffff;
+  }
+  
+  .search_icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #ffff; /* Cambia el color del icono según tus preferencias */ 
+    font-size: 18px; /* Ajusta el tamaño del icono según tus necesidades */
+    pointer-events: none; /* Evita que el icono sea clickeable */
+  }
+
+.chocofresa{
+    position: fixed;
+    width: 1780px;
+    top: 655px;
+    height: 270px;
+    right: -10px;
+}
+
+.choco{
+    position: relative;
+    width: 1780px;
+    top: 265px;
+    height: 270px;
+    right: 50px;
+    z-index: -1;
+}
+  
+  .profile-icon {
+    font-size: 64px; /* Tamaño del ícono personalizado */
+    color: #007bff; /* Color del ícono personalizado */
+    width: 200px;
+    height: auto;
+    position: relative;
+    left: 200px;
+    top: 60px;
+  }
+  
+.imagenPerfil{
+    position: relative;
+    left: 200px;
+    top: 60px;
+}
+
+.primerosDatos{
+    position: relative;
+    left: 200px;
+    top: 50px;
+}
+
+.datosP{
+    position: relative;
+    left: 500px;
+    top: -100px;
+}
+
+.nombreInput {
+    border: none; /* Elimina el borde */
+    border-bottom: 1px solid #000; /* Agrega una línea en la parte inferior (puedes cambiar el color) */
+    outline: none; /* Elimina el contorno cuando el input está enfocado */
+    position: relative;
+    left: 100px;
+    top: -40px;
+    width: 228px;
+}
+
+.apellidoPInput {
+    border: none; /* Elimina el borde */
+    border-bottom: 1px solid #000; /* Agrega una línea en la parte inferior (puedes cambiar el color) */
+    outline: none; /* Elimina el contorno cuando el input está enfocado */
+    position: relative;
+    left: 140px;
+    top: -40px;
+  }
+
+.apellidoMInput {
+    border: none; /* Elimina el borde */
+    border-bottom: 1px solid #000; /* Agrega una línea en la parte inferior (puedes cambiar el color) */
+    outline: none; /* Elimina el contorno cuando el input está enfocado */
+    position: relative;
+    left: 145px;
+    top: -40px;
+  }
+
+.segundosDatos {
+    position: relative;
+    left:350px;
+}
+
+.edad {
+    font-size: 20px;
+}
+  
+.edadInput {
+    position: relative;
+    left: 60px;
+    top: -45px;
+    width: 60px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.fecha {
+    font-size: 20px;
+  }
+
+.fechaInput {
+    position: relative;
+    left: 140px;
+    top: -45px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.fechaInput::placeholder {
+    text-align: center;
+}
+
+.fnacimiento {
+    position: relative;
+    left: 200px;
+    top: -75px;
+}
+
+.genero {
+    position: relative;
+    left: 250px;
+    font-size: 20px;
+    top: -75px;
+}
+
+.hombre {
+    position: relative;
+    left: 350px;
+    top: -120px;
+}
+
+.mujer {
+    position: relative;
+    left: 470px;
+    top: -149px;
+}
+
+.correo {
+    font-size: 20px;
+    position: relative;
+}
+
+.emailInput {
+    border: none; /* Elimina el borde */
+    border-bottom: 1px solid #000; /* Agrega una línea en la parte inferior (puedes cambiar el color) */
+    outline: none; /* Elimina el contorno cuando el input está enfocado */
+    position: relative;
+    left: 185px;
+    top: -50px;
+}
+
+.correos {
+    position: relative;
+    right: 250px;
+    top: -100px;
+}
+
+.telefono {
+    font-size: 20px;
+    position: relative;
+}
+
+.telefonoInput {
+    border: none; /* Elimina el borde */
+    border-bottom: 1px solid #000; /* Agrega una línea en la parte inferior (puedes cambiar el color) */
+    outline: none; /* Elimina el contorno cuando el input está enfocado */
+    position: relative;
+    left: 130px;
+    top: -50px;
+}
+
+.numero {
+    position: relative;
+    left: 200px;
+    top: -175px;
+}

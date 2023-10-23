@@ -1,0 +1,338 @@
+.menu{
+    width: 150px;
+    height: 1820px;
+    background-color: #D0FFF4;
+    border: gray;
+    position: fixed;
+    top: -10px;
+}
+
+.logo{
+    position: relative;
+    left: 20px;
+    top: 30px;
+    width: 100px;
+    height: 130px;
+}
+
+.boton{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+    font-size: 20px;
+    color: #ffff;
+    background-color: lightpink;
+    width: 79px;
+    height: 100px;
+}
+
+.palabras {
+    position: relative;
+    top: -5px;
+}
+
+.palabras2 {
+    position: relative;
+    top: -5px;
+    font-size: 13px;
+}
+
+.home{
+    position: relative;
+    width: 50px;
+}
+
+.boton1{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton2{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton3{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton4{
+    position: relative;
+    top: 50px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.boton5{
+    position: relative;
+    top: 150px;
+    left: 35px;
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    font-size: 20px;
+    color: darkmagenta;
+    background: transparent; /* Establece el fondo como transparente */
+    border: none; /* Elimina cualquier borde */
+    width: 79px;
+    height: 100px;
+}
+
+.detras{
+    z-index: 1;
+}
+
+.orden{
+    position: fixed;
+    background-color: #FFEBC3;
+    width: 600px;
+    height: 920px;
+    left: 1320px;
+    top: 2px;
+}
+
+.letras{
+    font-size: 40px;
+    position: relative;
+    left: 20px;
+    top: -15px;
+}
+
+.letras2{
+    font-size: 40px;
+    position: relative;
+    left: 20px;
+    top: -5px;
+}
+
+.letras3{
+    font-size: 40px;
+    position: relative;
+    left: 20px;
+    top: -35px;
+}
+
+.chispas{
+    border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+    border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+    width: 500px;
+    height: 35px;
+    position: relative;
+    left: 50px;
+    top: -30px;
+    background-color: #ffff;
+}
+
+.letra{
+    position: relative;
+    top: -8px;
+}
+
+.cono{
+    width: 600px;
+    border: 1px solid black;
+    height: 563px;
+    position: relative;
+    top: 25px;
+    background-color: #ffff;
+}
+
+.divsChispas{
+    position: relative;
+    top: -30px;
+}
+
+.botonesAC{
+    position: relative;
+    top: -10px;
+}
+
+.conos{
+    position: relative;
+    width: 100px;
+}
+
+.search_container {
+    position: relative;
+    display: inline-block;
+    top: 40px;
+    position: relative;
+    left: 1200px; 
+  }
+  
+  .mySearchBar {
+    padding: 10px 30px 10px 10px; /* Ajusta los valores de padding según tu diseño */
+    border: 1px solid #ccc;
+    background-color: transparent;
+    border-radius: 25px;
+    width: 350px; /* Ajusta el ancho según tus necesidades */
+    background-color: #ffff;
+  }
+  
+  .search_icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #ffff; /* Cambia el color del icono según tus preferencias */ 
+    font-size: 18px; /* Ajusta el tamaño del icono según tus necesidades */
+    pointer-events: none; /* Evita que el icono sea clickeable */
+  }
+
+.chocofresa{
+    position: fixed;
+    width: 1780px;
+    top: 655px;
+    height: 270px;
+    right: -10px;
+}
+
+.choco{
+    position: relative;
+    width: 1780px;
+    top: 265px;
+    height: 270px;
+    right: 50px;
+    z-index: -1;
+}
+
+.navdropdown{
+    position: relative;
+    left: 20px;
+    top: 70px;
+}
+
+.navdropdown::title{
+    font-size: 10px
+}
+
+.perfil{
+    width: 70px;
+    height: auto;
+    position: relative;
+    left: 10px;
+    top: 35px;
+}
+
+.titulo {
+    position: relative;
+    left: 75px;
+    top: -50px;
+    font-size: 18px;
+}
+
+.icono {
+    position: relative;
+    left: 180px;
+    top: -30px;
+}
+
+.cards {
+    position: relative;
+    left: 100px;
+}
+
+.card {
+    position: relative;
+    top: 100px;
+    left: 50px;
+}
+
+.card2 {
+    position: relative;
+    top: -50px;
+    left: 400px;
+}
+
+.card3 {
+    position: relative;
+    top: -200px;
+    left: 750px;
+}
+
+.card4 {
+    position: relative;
+    top: -350px;
+    left: 1100px;
+}
+
+.card5 {
+    position: relative;
+    top: -350px;
+    left: 50px;
+}
+
+.card6 {
+    position: relative;
+    top: -500px;
+    left: 400px;
+}
+
+.card7 {
+    position: relative;
+    top: -650px;
+    left: 750px;
+}
+
+.card8 {
+    position: relative;
+    top: -800px;
+    left: 1100px;
+}
+
+.card9 {
+    position: relative;
+    top: -800px;
+    left: 50px;
+}
+
+.card10 {
+    position: relative;
+    top: -950px;
+    left: 400px;
+}
+
+.card11 {
+    position: relative;
+    top: -1100px;
+    left: 750px;
+}
+
+.card12 {
+    position: relative;
+    top: -1250px;
+    left: 1100px;
+}

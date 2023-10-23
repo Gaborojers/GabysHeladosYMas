@@ -1,0 +1,86 @@
+.pagina {
+  background-image: url(./assets/img/bryn_beatson_yirlhy5qsqe_unsplash_2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 1920px;
+  height: 920px;
+}
+
+.container {
+  background-color: #FFFBEE;
+  width: 500px;
+  height: 500px;
+  border-radius: 20px; /* Esto establece las esquinas redondas con un radio de 10px */
+  position: fixed;
+  left: 700px;
+  top: 220px;
+}
+
+.logo {
+  width: 150px;
+  height: 180px;
+  position: relative;
+  left: 40px;
+  top: -300px;
+}
+
+.perfil {
+  width: 200px;
+    height: 110px;
+    position: relative;
+    left: 150px;
+    top: 30px;
+}
+
+.email{
+  position: relative;
+  left: 90px;
+  top: 80px;
+  width: 300px;
+  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+}
+
+.email::placeholder{
+  color: #999; /* Cambia el color del texto del placeholder */
+font-size: 14px; /* Cambia el tamaño de fuente del texto del placeholder */
+font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por ejemplo, italic) */
+}
+
+.password{
+  position: relative;
+  left: 90px;
+  top: 120px;
+  width: 300px;
+  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+}
+
+.password::placeholder{
+  color: #999; /* Cambia el color del texto del placeholder */
+font-size: 14px; /* Cambia el tamaño de fuente del texto del placeholder */
+font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por ejemplo, italic) */
+}
+
+.boton{
+  position: relative;
+  background-color: lightpink;
+  left: -150px;
+  top: 710px;
+  width: 150px;
+  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
+  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
+  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+  font-size: 20px;
+  color: #ffff;
+}
+
+.moverBoton{
+  position: relative;
+  left: 150px;
+  top: 130px;
+  width: 150px;
+}
