@@ -1,0 +1,57 @@
+#dropdown-basic-button {
+    background-color: #41E0E0;
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.botn::title {
+    font-size: 15px;
+}
+
+.botoness {
+    position: relative;
+    left: 100px;
+    top: 150px;
+}
+
+.orientacion {
+    position: relative;
+    left: 950px;
+    font-size: 30px;
+    top: 100px;
+}
+
+.gastos {
+    position: relative;
+    top: 180px;
+    left: 100px;
+    font-size: 50px;
+}
+
+.informacion p {
+    position: relative;
+    top: 180px;
+    left: 100px;
+    font-size: 30px;
+}
+
+.informacion span {
+    position: relative;
+    top: 180px;
+    left: 100px;
+    font-size: 30px;
+}
+
+.informacion span p {
+    position: relative;
+    top: -50px;
+    left: 30px;
+    font-size: 30px;
+}
+
+.icono {
+    position: relative;
+    left: 1100px;
+    top: -100px;
+}

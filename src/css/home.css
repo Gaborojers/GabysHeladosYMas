@@ -261,7 +261,7 @@
 
 .principal{
     position: relative;
-    top: -270px;
+    top: 270px;
     left: 200px;
     position: fixed;
 }
@@ -285,7 +285,7 @@
     background-color: azure;
 }
 
-.boton10{
+.boton101{
     position: relative;
     top: 50px;
     left: 185px;
@@ -350,7 +350,7 @@
     width: 110px;
 }
 
-.botoness{
+.botones{
     position: relative;
     left: 120px;
     top: -100px;
@@ -402,10 +402,15 @@
 
 .navdropdowns{
     position: relative;
-    left: 880px;
+    left: 880px; 
     top: -70px;
 }
 
 .navdropdowns::title{
     font-size: 10px
+}
+
+.categorias {
+    position: relative;
+    top: 300px;
 }

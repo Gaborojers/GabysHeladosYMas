@@ -1,0 +1,61 @@
+#dropdown-basic-button {
+    background-color: #E091E1;
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.botn::title {
+    font-size: 15px;
+}
+
+.botoness {
+    position: relative;
+    left: 100px;
+    top: 150px;
+}
+
+.historial {
+    position: relative;
+    top: 200px;
+    left: 20px;
+}
+
+/* styles.css */
+
+/* Estilo general de la tabla */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  /* Estilo para la fila encabezado */
+  th {
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Estilo para las filas impares */
+  tr:nth-child(odd) {
+    background-color: #e2c35e;
+  }
+  
+  /* Estilo para las filas pares */
+  tr:nth-child(even) {
+    background-color: #b6a261;
+  }
+  
+  /* Estilo para las celdas de usuario */
+  td:first-child {
+    font-weight: bold;
+    padding: 8px;
+  }
+  
+  /* Estilo para las celdas de cambio */
+  td:last-child {
+    padding: 8px;
+  }
+  

@@ -273,30 +273,6 @@
     top: 100px;
 }
 
-.boton9{
-    position: relative;
-    top: 50px;
-    left: 155px;
-    border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-    border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
-    font-size: 20px;
-    color: gray;
-    background-color: azure;
-}
-
-.boton10{
-    position: relative;
-    top: 50px;
-    left: 185px;
-    border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-    padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-    border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
-    font-size: 20px;
-    color: gray;
-    background-color: azure;
-}
-
 .produc{
     position: relative;
     top: 50px;
@@ -373,9 +349,15 @@
     width: 200px;
 }
 
-.producto{
+.productos{
     position: relative;
     width: 180px;
+}
+
+.botoness{
+    position: relative;
+    left: 180px;
+    top: 40px;
 }
 
 .botones{
@@ -432,6 +414,7 @@
     position: relative;
     left: 20px;
     top: 70px;
+    width: 250px;
 }
 
 .navdropdown::title{

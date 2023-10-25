@@ -1,0 +1,46 @@
+#dropdown-basic-button {
+    background-color: #E091E1;
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.botn::title {
+    font-size: 15px;
+}
+
+.botoness {
+    position: relative;
+    left: 100px;
+    top: 150px;
+}
+
+.orientacion {
+    position: relative;
+    left: 950px;
+    font-size: 30px;
+    top: 100px;
+}
+
+#dropdown-basic-button2 {
+    background-color: #e6c9c9;
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+    position: relative;
+    top: 40px;
+    left: 1130px;
+}
+
+.informe {
+    position: relative;
+    top: 100px;
+    left: 20px;
+    font-size: 50px;
+}
+
+.documento {
+    position: relative;
+    top: 80px;
+    left: 120px;
+}

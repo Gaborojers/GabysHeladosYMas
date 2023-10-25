@@ -5,10 +5,11 @@ import Imagen2 from "../assets/img/png-transparent-building-home-house-main-menu
 import Imagen from "../assets/img/png-transparent-computer-icons-logout-angle-text-black-removebg-preview.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Fresa from '../assets/img/choco37_1.png';
 import Chocolate from '../assets/img/image_2.png';
-import { FaUser } from 'react-icons/fa'; // Importa un ícono de perfil
+import { FaUser } from 'react-icons/fa';
+import MenuLateral from '../components/MenuLateral';
+import Imagenes from '../components/Imagenes';
 
 function App() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -28,47 +29,10 @@ function App() {
 
   return (
       <div>
-        <div className="menu">
-        <img src={Logo} alt="Logo" className="logo" />
-
-        <button className="boton">
-            <img src={Imagen2} className="home" />
-            <p className="palabras">Home</p>
-          </button>
-          <br />
-          <button className="boton1">
-            <img src={Imagen} className="home" />
-            <p className="palabras">Home</p>
-          </button>
-          <br />
-          <button className="boton2">
-            <img src={Imagen} className="home" />
-            <p className="palabras">Home</p>
-          </button>
-          <br />
-          <button className="boton3">
-            <img src={Imagen} className="home" />
-            <p className="palabras">Home</p>
-          </button>
-          <br />
-          <button className="boton4">
-            <img src={Imagen} className="home" />
-            <p className="palabras">Home</p>
-          </button>
-
-          <br />
-
-          <div className="detras">
-          
-          <button className="boton5">
-            <img src={Imagen} className="home" />
-            <p className="palabras2">Login Out</p>
-          </button>
-          </div>
-      </div>
+        <MenuLateral />
 
       <div className="principal">
-      <img src={Fresa} className="choco"/>
+      <Imagenes />
 
       <div className="primerosDatos">
       <form className="guardarPerfil">
@@ -156,8 +120,6 @@ function App() {
       </div>
 
       </div>
-
-          <img src={Chocolate} className="chocofresa"/>    
       </div>
     </div>
   );
