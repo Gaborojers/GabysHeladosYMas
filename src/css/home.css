@@ -414,3 +414,26 @@
     position: relative;
     top: 300px;
 }
+
+.mas {
+    position: relative;
+    top: -55px;
+    left: 200px;
+    color: black;
+    font-size: 20px;
+}
+
+.menos {
+    position: relative;
+    top: -50px;
+    left: 350px;
+    color: black;
+    font-size: 20px;
+}
+
+.cifra {
+    position: relative;
+    top: -50px;
+    left: 275px;
+    font-size: 20px;
+}

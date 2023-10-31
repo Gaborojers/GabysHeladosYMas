@@ -17,7 +17,7 @@ function App() {
               <NavDropdown.Item href="#action/3.3">Otros Productos</NavDropdown.Item>
             </NavDropdown>
             </div>
-
+          
             <div className="botoness" style={{ top: '105px', position: 'relative', left: '120px' }}>
             <Button className="produc">
             <img src={Helado} className="productos" style={{ width: '110px' }}/>
