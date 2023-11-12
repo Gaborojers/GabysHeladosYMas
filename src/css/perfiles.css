@@ -336,3 +336,11 @@
     top: -1250px;
     left: 1100px;
 }
+
+.agregar {
+    position: relative;
+    left: 1150px;
+    top: 35px;
+    width: 70px;
+    height: auto;
+}

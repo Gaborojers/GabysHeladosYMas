@@ -9,6 +9,7 @@ import Perfil from './pages/Perfil';
 import Historial from './pages/Historial';
 import Informe from './pages/Informe';
 import Gastos from './pages/Gastos';
+import Ayuda from './pages/Ayuda';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Historial" element={<Historial />} />
         <Route path="/Informe" element={<Informe />}/>
         <Route path="/Gastos" element={<Gastos />}/>
+        <Route path="/Ayuda" element={<Ayuda />}/>
       </Routes>
     </Router>
   );

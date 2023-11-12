@@ -119,6 +119,12 @@ function App() {
           
       </div>
 
+          <div className='moverBoton'>
+          <Button className="botones" style={{ backgroundColor: '#41E0E0' }}>
+            <span className="palabras">Agregar</span>
+          </Button>
+          </div>
+
       </div>
       </div>
     </div>

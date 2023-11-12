@@ -384,3 +384,15 @@
     left: 200px;
     top: -175px;
 }
+
+.botones {
+    position: relative;
+    top: -250px;
+}
+
+.moverBoton{
+    position: relative;
+    left: 175px;
+    top: 10px;
+    width: 150px;
+  }

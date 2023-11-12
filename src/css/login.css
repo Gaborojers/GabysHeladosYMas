@@ -81,7 +81,7 @@ font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por
 
 .moverBoton{
   position: relative;
-  left: 5px;
+  right: 5px;
   top: 180px;
   width: 150px;
 }
