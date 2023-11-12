@@ -1,87 +1,41 @@
+:root {
+  --background-image: url(../assets/img/bryn_beatson_yirlhy5qsqe_unsplash_2.png);
+}
+
 .pagina {
-  background-image: url(../assets/img/bryn_beatson_yirlhy5qsqe_unsplash_2.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: var(--background-image);
+  width: 100%;
+  height: 100vh;
+}
+
+.box {
   position: relative;
-  width: 1920px;
-  height: 920px;
+  width: 5rem;
+  height: 5rem;
 }
-
-.containers { 
-  background-color: #FFFBEE;
-  width: 500px;
-  height: 500px;
-  border-radius: 20px; /* Esto establece las esquinas redondas con un radio de 20px */
-  position: relative; /* Establece la posición relativa */
-  left: 700px; /* Desplaza el contenedor 300px a la derecha */
-  top: 80px;
-}
-
 
 .logo {
-  width: 150px;
-  height: 180px;
-  position: relative;
-  left: 40px;
-  top: -300px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.perfiles {
-  width: 200px;
-    height: 110px;
-    position: relative;
-    left: 150px;
-    top: 30px;
+.formu-login {
+  background-color: rgb(245, 240, 220);
+  width: 50%;
+  min-width: 20rem;
+  height: auto;
+  padding: 1.5rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.emails{
-  position: relative;
-  left: -90px;
-  top: 150px;
-  width: 300px;
-  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
-}
-
-.emails::placeholder{
-  color: #999; /* Cambia el color del texto del placeholder */
-font-size: 14px; /* Cambia el tamaño de fuente del texto del placeholder */
-font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por ejemplo, italic) */
-}
-
-.passwords{
-  position: relative;
-  left: 110px;
-  top: 150px;
-  width: 300px;
-  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
-}
-
-.passwords::placeholder{
-  color: #999; /* Cambia el color del texto del placeholder */
-font-size: 14px; /* Cambia el tamaño de fuente del texto del placeholder */
-font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por ejemplo, italic) */
-}
-
-.botones{
-  position: relative;
-  background-color: lightpink;
-  left: -150px;
-  top: 770px;
-  width: 150px;
-  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
-  font-size: 20px;
-  color: #ffff;
-}
-
-.moverBoton{
-  position: relative;
-  left: 5px;
-  top: 180px;
-  width: 150px;
+.center-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }

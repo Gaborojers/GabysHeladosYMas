@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Helado from '../assets/img/4534108-removebg-preview.png';
@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/esm/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
-function App() {
+function Venta() {
   const [chispasCounts, setChispasCounts] = useState({
     chispa1: 0,
     chispa2: 0,
@@ -162,4 +162,4 @@ function App() {
   );
 }
 
-export default App;
+export default Venta;

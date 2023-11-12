@@ -1,36 +1,53 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root, { loader as rootLoader, action as rootAction, } from "./routes/root";
+import Layout from "./routes/Layout";
+import LayoutAdmin from "./routes/LayoutAdmin";
 import ErrorPage from "./error-page";
-import Contact, { loader as contactLoader } from "./routes/contact";
-import EditContact, { action as editAction, } from "./routes/edit";
-import { action as destroyAction } from "./routes/destroy";
+import Login from "./pages/Login";
+import Venta from "./pages/Venta";
+/*
+import Inventario from "./pages/Inventario";
+import Perfiles from "./pages/Perfiles";
+import Perfil from "./pages/Perfil";
+import Historial from "./pages/Historial";
+import Informe from "./pages/Informe";
+import Gastos from "./pages/Gastos";
+*/
 import "./index.css";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Login />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
-    action: rootAction,
     children: [
       {
-        path: "contacts/:contactId",
-        element: <Contact />,
-        loader: contactLoader,
+        path: "tienda",
+        element: <Layout />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "venta",
+            element: <Venta />,
+          },
+          {
+            path: "ingresar-inventario",
+            element: <Venta />,
+          },
+        ],
       },
       {
-        path: "contacts/:contactId/edit",
-        element: <EditContact />,
-        loader: contactLoader,
-        action: editAction,
-      },
-      {
-        path: "contacts/:contactId/destroy",
-        action: destroyAction,
-        errorElement: <div>Oops! There was an error.</div>,
+        path: "/control",
+        element: <LayoutAdmin />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "contacts/:contactId",
+            element: <Venta />,
+          },
+        ],
       },
     ],
   },
