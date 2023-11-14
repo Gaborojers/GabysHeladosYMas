@@ -6,13 +6,14 @@ import LayoutAdmin from "./routes/LayoutAdmin";
 import ErrorPage from "./error-page";
 import Login from "./pages/Login";
 import Venta from "./pages/Venta";
+
 /*
+import Gastos from "./pages/Gastos";
 import Inventario from "./pages/Inventario";
 import Perfiles from "./pages/Perfiles";
 import Perfil from "./pages/Perfil";
 import Historial from "./pages/Historial";
 import Informe from "./pages/Informe";
-import Gastos from "./pages/Gastos";
 */
 import "./index.css";
 

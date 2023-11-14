@@ -2,35 +2,48 @@
   --background-image: url(../assets/img/bryn_beatson_yirlhy5qsqe_unsplash_2.png);
 }
 
+/* Estilos para el contenedor padre */
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  /* Ajusta la altura según tus necesidades */
+}
+
+.fila {
+  display: flex;
+}
+
+.item {
+  padding: 10px;
+}
+
 .pagina {
-  background-image: var(--background-image);
+  position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
-.box {
-  position: relative;
-  width: 5rem;
-  height: 5rem;
-}
-
-.logo {
-  object-fit: cover;
+.pagina::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
-.formu-login {
-  background-color: rgb(245, 240, 220);
-  width: 50%;
-  min-width: 20rem;
-  height: auto;
-  padding: 1.5rem;
-  border: 1px solid #000000;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+.pagina img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .center-cart {
@@ -38,4 +51,74 @@
   justify-content: center;
   align-items: center;
   height: auto;
+}
+
+.header-log {
+  display: flex;
+  align-items:start;
+  padding: 0, 1rem;
+}
+
+.col > .logo {
+  top: 5%;
+  left: 0;
+  width: 7rem;
+  height: auto;
+}
+
+/* Estilos para el formulario */
+.formu-login {
+  top: -10%;
+  position: relative;
+  background-color: rgb(245, 240, 220);
+  width: auto;
+  height: auto;
+  padding: 1.5rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.boton-log {
+ width: 10rem;
+ background-color: #d62b2b;
+}
+
+/* Estilos para el pie de pagina */
+.fooder-conten {
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.site-info {
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Variaciones por pantalla */
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .formu-login {
+    width: 25rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .formu-login {
+    width: 30rem;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .formu-login {
+    width: 30rem;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .formu-login {
+    width: 40rem;
+  }
 }
