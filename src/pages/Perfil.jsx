@@ -21,10 +21,10 @@ function App() {
       setDisplayIcon(false);
     };
 
-    const [gender, setGender] = useState(''); // Estado para almacenar el género seleccionado
+    const [gender, setGender] = useState('');
 
   const handleGenderChange = (e) => {
-    setGender(e.target.value); // Actualiza el estado cuando cambia el valor
+    setGender(e.target.value); 
   };
 
   return (
