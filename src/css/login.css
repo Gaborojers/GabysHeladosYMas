@@ -1,87 +1,124 @@
+:root {
+  --background-image: url(../assets/img/bryn_beatson_yirlhy5qsqe_unsplash_2.png);
+}
+
+/* Estilos para el contenedor padre */
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  /* Ajusta la altura según tus necesidades */
+}
+
+.fila {
+  display: flex;
+}
+
+.item {
+  padding: 10px;
+}
+
 .pagina {
-  background-image: url(../assets/img/bryn_beatson_yirlhy5qsqe_unsplash_2.png);
-  background-size: cover;
-  background-repeat: no-repeat;
   position: relative;
-  width: 1920px;
-  height: 920px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.containers { 
-  background-color: #FFFBEE;
-  width: 500px;
-  height: 500px;
-  border-radius: 20px; /* Esto establece las esquinas redondas con un radio de 20px */
-  position: relative; /* Establece la posición relativa */
-  left: 700px; /* Desplaza el contenedor 300px a la derecha */
-  top: 80px;
+.pagina::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
+.pagina img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
 
-.logo {
-  width: 150px;
-  height: 180px;
+.center-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.header-log {
+  display: flex;
+  align-items:start;
+  padding: 0, 1rem;
+}
+
+.col > .logo {
+  top: 5%;
+  left: 0;
+  width: 7rem;
+  height: auto;
+}
+
+/* Estilos para el formulario */
+.formu-login {
+  top: -10%;
   position: relative;
-  left: 40px;
-  top: -300px;
+  background-color: rgb(245, 240, 220);
+  width: auto;
+  height: auto;
+  padding: 1.5rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.perfiles {
-  width: 200px;
-    height: 110px;
-    position: relative;
-    left: 150px;
-    top: 30px;
+.boton-log {
+ width: 10rem;
+ background-color: #d62b2b;
 }
 
-.emails{
+/* Estilos para el pie de pagina */
+.fooder-conten {
   position: relative;
-  left: -90px;
-  top: 150px;
-  width: 300px;
-  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+  width: 100%;
+  height: 5rem;
+  padding-top: 1rem;
+  text-align: center;
 }
 
-.emails::placeholder{
-  color: #999; /* Cambia el color del texto del placeholder */
-font-size: 14px; /* Cambia el tamaño de fuente del texto del placeholder */
-font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por ejemplo, italic) */
+.site-info {
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
 }
 
-.passwords{
-  position: relative;
-  left: 110px;
-  top: 150px;
-  width: 300px;
-  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
+/* Variaciones por pantalla */
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .formu-login {
+    width: 25rem;
+  }
 }
 
-.passwords::placeholder{
-  color: #999; /* Cambia el color del texto del placeholder */
-font-size: 14px; /* Cambia el tamaño de fuente del texto del placeholder */
-font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por ejemplo, italic) */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .formu-login {
+    width: 30rem;
+  }
 }
 
-.botones{
-  position: relative;
-  background-color: lightpink;
-  left: -150px;
-  top: 770px;
-  width: 150px;
-  border-radius: 10px; /* Esto establece las esquinas redondas con un radio de 10px */
-  padding: 10px; /* Esto agrega espacio interno para que el texto no esté pegado a los bordes redondos */
-  border: 2px solid #ccc; /* Esto agrega un borde con un color gris claro */
-  font-size: 20px;
-  color: #ffff;
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .formu-login {
+    width: 30rem;
+  }
 }
-
-.moverBoton{
-  position: relative;
-  right: 5px;
-  top: 180px;
-  width: 150px;
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .formu-login {
+    width: 40rem;
+  }
 }

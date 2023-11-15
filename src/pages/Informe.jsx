@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+
 import '../css/informe.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuLateral from '../components/MenuLateral';
