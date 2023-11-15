@@ -1,4 +1,5 @@
 import { Form, Stack, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 /*import { useNavigate } from "react-router-dom";*/
 
 function LoginForm() {
@@ -24,8 +25,8 @@ function LoginForm() {
       </Form.Group>
       <Form.Group className="mb-3">
         <Stack direction="horizontal" gap={3}>
-          <div className="p-2">First item</div>
-          <div className="p-2">Third item</div>
+          <Link className="p-2">First item</Link>
+          <Link className="p-2">Third item</Link>
         </Stack>
       </Form.Group>
       <div className="center-cart">
