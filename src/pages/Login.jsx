@@ -13,8 +13,8 @@ function App() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    axios.post('http://127.0.0.1:27017/empleado/login', { correo: email, contraseña: password })
-      .then((response) => {
+    axios.post('http://localhost:3000/empleados/login', { correo: email, contraseña: password })
+    .then((response) => {
         navigate('/Home');
       })
       .catch((error) => {
@@ -30,7 +30,7 @@ function App() {
             title: 'Error',
             text: 'Error al conectar con el servidor. Por favor, inténtalo más tarde.',
           });
-        } else {x
+        } else {
           Swal.fire({
             icon: 'error',
             title: 'Error',
