@@ -1,10 +1,15 @@
 import { Form, Stack, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+/*import { useNavigate } from "react-router-dom";*/
 
 function LoginForm() {
-  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aquí puedes realizar las acciones que necesites al enviar el formulario
+    console.log("Formulario enviado");
+  };
+
   return (
-    <Form className="formu-login">
+    <Form className="formu-login" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
