@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "/control",
+        path: "control",
         element: <LayoutAdmin />,
         errorElement: <ErrorPage />,
         children: [
