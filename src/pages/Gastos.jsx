@@ -7,6 +7,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Imagenes from '../components/Imagenes';
 import { IconContext } from "react-icons";
 import { FaLightbulb } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -18,14 +19,14 @@ function App() {
           <Imagenes />
 
           <div className='botoness'>
-          <DropdownButton id="dropdown-basic-button" title={<span style={{ fontSize: '25px', color: 'black' }}>Gastos</span>} className='botn'>
-            <Dropdown.Item className='opciones' href="#/action-1">Luz</Dropdown.Item>
-            <Dropdown.Item className='opciones' href="#/action-2">Agua</Dropdown.Item>
-          </DropdownButton>
+              <DropdownButton id="dropdown-basic-button" title={<span style={{ fontSize: '25px' }}>Tipos de datos</span>} className='botn'>
+                <Dropdown.Item as={Link} to="/Informe" className='opciones'>Informe</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/Gastos" className='opciones'>Gastos</Dropdown.Item>
+              </DropdownButton>
           </div>
 
           <div className='informacion'>
-          <h2 className='gastos'>Gastos de Luz</h2>
+          <h2 className='gastos'>Informe de Gastos</h2>
           <p>-------------------------------------------------------</p>
           <p>-------------------------------------------------------</p>
           <p>-------------------------------------------------------</p>

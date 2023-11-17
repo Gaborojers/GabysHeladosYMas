@@ -5,6 +5,7 @@ import MenuLateral from '../components/MenuLateral';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Imagenes from '../components/Imagenes';
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -18,11 +19,10 @@ function App() {
           <h2 className='informe'>Informe</h2>
 
           <div className='botoness'>
-          <DropdownButton id="dropdown-basic-button" title={<span style={{ fontSize: '25px' }}>Fecha</span>} className='botn'>
-            <Dropdown.Item className='opciones' href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item className='opciones' href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item className='opciones' href="#/action-3">Something else</Dropdown.Item>
-          </DropdownButton>
+              <DropdownButton id="dropdown-basic-button" title={<span style={{ fontSize: '25px' }}>Tipos de datos</span>} className='botn'>
+                <Dropdown.Item as={Link} to="/Informe" className='opciones'>Informe</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/Gastos" className='opciones'>Gastos</Dropdown.Item>
+              </DropdownButton>
           </div>
 
           <div className='orientacionBtn'>

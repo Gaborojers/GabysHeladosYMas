@@ -10,6 +10,9 @@ import Chocolate from '../assets/img/image_2.png';
 import { FaUser } from 'react-icons/fa';
 import MenuLateral from '../components/MenuLateral';
 import Imagenes from '../components/Imagenes';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+
 
 function App() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -21,10 +24,39 @@ function App() {
       setDisplayIcon(false);
     };
 
-    const [gender, setGender] = useState(''); // Estado para almacenar el género seleccionado
+    const [gender, setGender] = useState('');
 
   const handleGenderChange = (e) => {
-    setGender(e.target.value); // Actualiza el estado cuando cambia el valor
+    setGender(e.target.value); 
+  };
+
+  const handleAgregar = () => {
+    const empleadoData = {
+      nombre: document.querySelector('.nombreInput').value,
+      apellidoPaterno: document.querySelector('.apellidoPInput').value,
+      apellidoMaterno: document.querySelector('.apellidoMInput').value,
+      edad: parseInt(document.querySelector('.edadInput').value),
+      numTel: document.querySelector('.telefonoInput').value,
+      correo: document.querySelector('.emailInput').value,
+      contraseña: '', 
+      salario: '',
+    };
+  
+    axios.post('http://localhost:3000/empleados/agregarEmpleado', empleadoData)
+      .then((response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Empleado agregado',
+          text: 'El empleado se ha agregado correctamente.',
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Ha ocurrido un error al agregar el empleado. Por favor, inténtalo de nuevo.',
+        });
+      });
   };
 
   return (
@@ -39,7 +71,7 @@ function App() {
         <label htmlFor="profile-picture" className="profile-upload">
           <div className="profile-icon-container">
             {displayIcon ? (
-              <FaUser className="profile-icon" /> /* Muestra el ícono si displayIcon es true */
+              <FaUser className="profile-icon" />
             ) : null}
           </div>
           <input
@@ -57,7 +89,7 @@ function App() {
         <img
           src={URL.createObjectURL(selectedFile)}
           alt="Foto de perfil"
-          style={{ maxWidth: '200px' }} /* Ajusta el tamaño de la vista previa */
+          style={{ maxWidth: '200px' }}
           className="imagenPerfil"
         />
       )}
@@ -118,6 +150,12 @@ function App() {
           </div>
           
       </div>
+
+          <div className='moverBoton'>
+          <Button className="botones" style={{ backgroundColor: '#41E0E0' }} onClick={handleAgregar}>
+            <span className="palabras">Agregar</span>
+          </Button>
+          </div>
 
       </div>
       </div>

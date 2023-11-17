@@ -17,10 +17,7 @@ function App() {
       <Imagenes />
       <p className="menus"><strong>Perfiles</strong> De Empleados</p>
 
-            <div className="search_container">
-            <input type="text" placeholder="Buscar Producto" className="mySearchBar" id="searchMobile" />
-            <i className="search_icon"></i>
-            </div>
+            
 
             <CardsEmpleados /> 
       </div>
