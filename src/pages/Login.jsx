@@ -1,6 +1,5 @@
 import '../css/login.css';
-import React from 'react';
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import LoginForm from "../components/LoginForm";
 import FooderLogin from "../components/FooderLogin";
 import Logo from '../assets/img/95ed7030_76ee_4be3_a6f3_abae123215b4_photoroom_1.png';
