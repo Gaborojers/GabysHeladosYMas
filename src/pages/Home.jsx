@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Helado from '../assets/img/4534108-removebg-preview.png';
