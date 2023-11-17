@@ -14,7 +14,7 @@ function App() {
 
   const handleLogin = () => {
     axios.post('http://localhost:3000/empleados/login', { correo: email, contraseña: password })
-    .then((response) => {
+      .then((response) => {
         navigate('/Home');
       })
       .catch((error) => {
