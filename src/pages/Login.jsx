@@ -26,7 +26,7 @@ function App() {
           });
         } else if (error.request) {
           Swal.fire({
-            icon: 'error',
+            icon: 'error',  
             title: 'Error',
             text: 'Error al conectar con el servidor. Por favor, inténtalo más tarde.',
           });
