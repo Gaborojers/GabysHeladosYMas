@@ -73,7 +73,7 @@ function App() {
 
       <div className="cards">
         {empleados.map((empleado, index) => (
-          <div key={empleado._id} style={{ marginBottom: '10px' }}>
+          <div key={empleado._id} style={{  }}>
             <Card
               style={{ width: '18rem', backgroundColor: '#35DBFF', height: '150px' }}
               className={`card${index + 1}`}

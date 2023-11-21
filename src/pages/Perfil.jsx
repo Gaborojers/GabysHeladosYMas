@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import '../css/perfil.css';
 import Logo from '../assets/img/95ed7030_76ee_4be3_a6f3_abae123215b4_photoroom_1.png';
 import Imagen2 from "../assets/img/png-transparent-building-home-house-main-menu-start-basic-ui-2-line-icon-thumbnail-removebg-preview.png";
@@ -13,12 +12,54 @@ import MenuLateral from '../components/MenuLateral';
 import Imagenes from '../components/Imagenes';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function App() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
   const [selectedFile, setSelectedFile] = useState(null);
   const [displayIcon, setDisplayIcon] = useState(true);
+  const navigate = useNavigate();
+  const [empleado, setEmpleado] = useState({
+    nombre: '',
+    apellidoPaterno: '',
+    apellidoMaterno: '',
+    genero: '',
+    edad: 0,
+    fechaNacimiento: '',
+    numTel: '',
+    correo: '',
+    contraseña: '',
+    salario: 0,
+    tipoEmpleado: ''
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmpleado((prevEmpleado) => ({
+      ...prevEmpleado,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3000/empleados/agregar', empleado)
+  .then((response) => {
+    Swal.fire({
+      title: 'Empleado agregado exitosamente',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+    navigate('/Perfiles')
+  })
+  .catch((error) => {
+    Swal.fire({
+      title: 'Error al agregar empleado',
+      text: error.message,
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+  });
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -26,57 +67,23 @@ function App() {
     setDisplayIcon(false);
   };
 
-  const handleAgregar = async (data) => {
-    try {
-      const response = await axios.post('http://localhost:3000/empleados/agregar', { data });
-      if (response.status === 200) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Empleado agregado',
-          text: 'El empleado se ha agregado correctamente.',
-        });
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error al agregar el empleado. Por favor, inténtalo de nuevo.',
-        });
-      }
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Ha ocurrido un error al conectar con el servidor. Por favor, verifica tu conexión e inténtalo de nuevo.',
-      });
-    }
-  };
-
   return (
     <div>
       <MenuLateral />
 
-      <div className="principal">
+      <form className="principal" onSubmit={handleSubmit}>
         <Imagenes />
 
         <div className="primerosDatos">
-          <form className="guardarPerfil" onSubmit={handleSubmit(handleAgregar)}>
+          <form className="guardarPerfil">
             <label htmlFor="profile-picture" className="profile-upload">
               <div className="profile-icon-container">
                 {displayIcon ? (
                   <FaUser className="profile-icon" />
                 ) : null}
               </div>
-              <input
-                type="file"
-                id="profile-picture"
-                name="profile-picture"
-                accept="image/*"
-                onChange={handleFileChange}
-                ref={register({ required: true })}
-                style={{ display: 'none' }}
-              />
+              <input type="file" id="profile-picture" name="profile-picture" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }}/>
             </label>
-            {errors.profilePicture && <span className="error">Campo requerido</span>}
           </form>
 
           {selectedFile && (
@@ -89,66 +96,63 @@ function App() {
           )}
 
           <div className="datosP">
-            <p className="nombre"><strong>Nombre(s):</strong></p>
-            <input type='text' className="nombreInput" value={nombre} onChange={handleNombreChange} ref={register({ required: true })} />
-            {errors.nombre && <span className="error">Campo requerido</span>}
-
+            <p className="nombre"><strong>Nombres:</strong></p>
+            <input type="text" name="nombre" value={empleado.nombre} onChange={handleChange} />
             <p className="apellidoP"><strong>Apellido Paterno:</strong></p>
-            <input type='text' className="apellidoPInput" value={apellidoPaterno} onChange={handleApellidoPaternoChange} ref={register({ required: true })} />
-            {errors.apellidoPaterno && <span className="error">Campo requerido</span>}
-
+            <input type="text" name="apellidoPaterno" value={empleado.apellidoPaterno} onChange={handleChange} />
             <p className="apellidoM"><strong>Apellido Materno:</strong></p>
-            <input type='text' className="apellidoMInput" value={apellidoMaterno} onChange={handleApellidoMaternoChange} ref={register({ required: true })} />
-            {errors.apellidoMaterno && <span className="error">Campo requerido</span>}
-
-            <p className="edad"><strong>Edad:</strong></p>
-            <input type='text' className="edadInput" value={edad} onChange={handleEdadChange} ref={register({ required: true })} />
-            {errors.edad && <span className="error">Campo requerido</span>}
-
-            <div className="fnacimiento">
-              <p className="fecha"><strong>F.Nacimiento:</strong></p>
-              <input type="text" className="fechaInput" pattern="\d{2}/\d{2}/\d{4}" placeholder="DD/MM/AAAA" value={fecha} onChange={handleFechaChange} ref={register({ required: true })} />
-              {errors.fecha && <span className="error">Formato incorrecto</span>}
-            </div>
-
-            <div className="genero">
-              <p className="genero"><strong>Género:</strong></p>
-              <div className="hombre">
-                <input
-                  type="radio"
-                  id="male"
-                  name="gender"
-                  value="male"
-                  checked={gender === 'male'}
-                  onChange={handleGenderChange}
-                  ref={register({ required: true })}
-                />
-                <label htmlFor="male">Masculino</label>
-              </div>
-
-              <div className="mujer">
-                <input type="radio" id="female" name="gender" value="female" checked={gender === 'female'} onChange={handleGenderChange} ref={register({ required: true })} />
-                <label htmlFor="female">Femenino</label>
-              </div>
-              {errors.gender && <span className="error">Campo requerido</span>}
-            </div>
-
-            <p className="correo"><strong>Correo electrónico:</strong></p>
-            <input type="text" className="emailInput" value={email} onChange={handleEmailChange} ref={register({ required: true, email: true })} />
-            {errors.email && <span className="error">Formato incorrecto</span>}
-
-            <p className="telefono"><strong>N. Teléfono:</strong></p>
-            <input type="text" className="telefonoInput" value={telefono} onChange={handleTelefonoChange} ref={register({ required: true, minLength: 10, maxLength: 10 })} />
-            {errors.telefono && <span className="error">Formato incorrecto</span>}
-
-            <div className='moverBoton'>
-              <Button className="botones" style={{ backgroundColor: '#41E0E0' }} onClick={handleSubmit(handleAgregar)}>
-                <span className="palabras">Agregar</span>
-              </Button>
-            </div>
+            <input type="text" name="apellidoMaterno" value={empleado.apellidoMaterno} onChange={handleChange} />
           </div>
         </div>
-      </div>
+
+        <div className="segundosDatos">
+          <p className="edad"><strong>Edad:</strong></p>
+          <input type="number" name="edad" value={empleado.edad} onChange={handleChange} />
+          <p className="telefono"><strong>Ocupación:</strong></p>
+              <input type="text" name="tipoEmpleado" value={empleado.tipoEmpleado} onChange={handleChange} />
+
+          <div className="fnacimiento">
+            <p className="fecha"><strong>F.Nacimiento:</strong></p>
+            <input type="text" name="fechaNacimiento" pattern="\d{2}/\d{2}/\d{4}" placeholder="DD/MM/AAAA" value={empleado.fechaNacimiento} onChange={handleChange} />
+            <p className="telefono"><strong>N. Teléfono:</strong></p>
+              <input type="text" name="numTel" value={empleado.numTel} onChange={handleChange} />
+              
+          </div>
+
+          <div className="genero">
+            <p className="genero"><strong>Género:</strong></p>
+            <div className="hombre">
+              <input type="radio" name="genero" value="Masculino" checked={empleado.genero === "Masculino"} onChange={handleChange} />
+              <label htmlFor="male">Masculino</label>
+            </div>
+            <div className="mujer">
+              <input type="radio" name="genero" value="Femenino" checked={empleado.genero === "Femenino"} onChange={handleChange} />
+              <label htmlFor="female">Femenino</label>
+            </div>
+
+             
+              <div className="correos">
+              <p className="correo"><strong>Correo electrónico:</strong></p>
+              <input type="text" name="correo" value={empleado.correo} onChange={handleChange} />
+              <p className="correo"><strong>Salario:</strong></p>
+              <input type="number" name="salario" value={empleado.salario} onChange={handleChange} />
+            </div>
+
+            <div className="numero">
+              <p className="telefono"><strong>Contraseña:</strong></p>
+              <input type="password" name="contraseña" value={empleado.contraseña} onChange={handleChange} />  
+            </div>
+
+          </div>
+
+          <div className='moverBoton'>
+            <Button className="botones" style={{ backgroundColor: '#41E0E0' }} type='submit'>
+              <span className="palabras">Agregar</span>
+            </Button>
+          </div>
+
+        </div>
+      </form>
     </div>
   );
 }
