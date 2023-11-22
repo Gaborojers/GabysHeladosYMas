@@ -30,7 +30,7 @@ function App() {
     correo: '',
     contraseña: '',
     salario: 0,
-    tipoEmpleado: ''
+    tipoEmpleado: 'Empleado'
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,22 +43,22 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:3000/empleados/agregar', empleado)
-  .then((response) => {
-    Swal.fire({
-      title: 'Empleado agregado exitosamente',
-      icon: 'success',
-      confirmButtonText: 'Aceptar'
-    });
-    navigate('/Perfiles')
-  })
-  .catch((error) => {
-    Swal.fire({
-      title: 'Error al agregar empleado',
-      text: error.message,
-      icon: 'error',
-      confirmButtonText: 'Aceptar'
-    });
-  });
+      .then((response) => {
+        Swal.fire({
+          title: 'Empleado agregado exitosamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        navigate('/Perfiles')
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: 'Error al agregar empleado',
+          text: error.message,
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      });
   };
 
   const handleFileChange = (e) => {
@@ -82,7 +82,7 @@ function App() {
                   <FaUser className="profile-icon" />
                 ) : null}
               </div>
-              <input type="file" id="profile-picture" name="profile-picture" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }}/>
+              <input type="file" id="profile-picture" name="profile-picture" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
             </label>
           </form>
 
@@ -109,14 +109,17 @@ function App() {
           <p className="edad"><strong>Edad:</strong></p>
           <input type="number" name="edad" value={empleado.edad} onChange={handleChange} />
           <p className="telefono"><strong>Ocupación:</strong></p>
-              <input type="text" name="tipoEmpleado" value={empleado.tipoEmpleado} onChange={handleChange} />
+          <select name="tipoEmpleado" value={empleado.tipoEmpleado} onChange={handleChange}>
+            <option value="Empleado">Empleado</option>
+            <option value="Gerente">Gerente</option>
+          </select>
 
           <div className="fnacimiento">
             <p className="fecha"><strong>F.Nacimiento:</strong></p>
             <input type="text" name="fechaNacimiento" pattern="\d{2}/\d{2}/\d{4}" placeholder="DD/MM/AAAA" value={empleado.fechaNacimiento} onChange={handleChange} />
             <p className="telefono"><strong>N. Teléfono:</strong></p>
-              <input type="text" name="numTel" value={empleado.numTel} onChange={handleChange} />
-              
+            <input type="text" name="numTel" value={empleado.numTel} onChange={handleChange} />
+
           </div>
 
           <div className="genero">
@@ -130,8 +133,8 @@ function App() {
               <label htmlFor="female">Femenino</label>
             </div>
 
-             
-              <div className="correos">
+
+            <div className="correos">
               <p className="correo"><strong>Correo electrónico:</strong></p>
               <input type="text" name="correo" value={empleado.correo} onChange={handleChange} />
               <p className="correo"><strong>Salario:</strong></p>
@@ -140,7 +143,7 @@ function App() {
 
             <div className="numero">
               <p className="telefono"><strong>Contraseña:</strong></p>
-              <input type="password" name="contraseña" value={empleado.contraseña} onChange={handleChange} />  
+              <input type="password" name="contraseña" value={empleado.contraseña} onChange={handleChange} />
             </div>
 
           </div>

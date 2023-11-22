@@ -1,96 +1,78 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Helado from '../assets/img/4534108-removebg-preview.png';
+import Paleta from "../assets/img/3132683.png";
+import Bebidas from "../assets/img/813e5fa18d1433b42458bb3c48537caa.png";
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import axios from 'axios';
 
 function App() {
+  const [productos, setProductos] = useState([]);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('helados');
+
+  const imagenesCategoria = {
+    helados: Helado,
+    paleta: Paleta,
+    bebidas: Bebidas
+  };
+  useEffect(() => {
+    const obtenerProductos = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/${categoriaSeleccionada}`);
+        const productosObtenidos = response.data;
+        setProductos(productosObtenidos);
+      } catch (error) {
+        console.error('Error al obtener los productos:', error);
+      }
+    };
+    obtenerProductos();
+  }, [categoriaSeleccionada]);
+
+  const obtenerProductosPorCategoria = async (categoria) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/${categoria}`);
+      const productosObtenidos = response.data;
+      setProductos(productosObtenidos);
+      setCategoriaSeleccionada(categoria);
+    } catch (error) {
+      console.error(`Error al obtener los productos de la categoría ${categoria}:`, error);
+    }
+  };
 
   return (
-      <div>
+    <div>
       <div className="heladoss">
-          <Button className="boton6">
-            <img src={Helado} className="conos"/>
-            <p>Home</p>
+        <Button className={categoriaSeleccionada === 'paleta' ? 'boton7 active' : 'boton7'} onClick={() => obtenerProductosPorCategoria('paleta')}>
+          <img src={Paleta} className="conos" alt="Paleta" />
+          <p>Paletas</p>
+        </Button>
+        <Button className={categoriaSeleccionada === 'helados' ? 'boton8 active' : 'boton8'} onClick={() => obtenerProductosPorCategoria('helados')}>
+          <img src={Helado} className="conos" alt="Helado" />
+          <p>Helados</p>
+        </Button>
+        <Button className={categoriaSeleccionada === 'bebidas' ? 'boton8 active' : 'boton8'} style={{ left: '155px' }} onClick={() => obtenerProductosPorCategoria('bebidas')}>
+          <img src={Bebidas} className="conos" alt="Bebidas" />
+          <p>Bebidas</p>
+        </Button>
+      </div>
+      <br />
+      <p className="menuss">
+        <strong>Elegir</strong> Orden
+      </p>
+      <div className="scrollable-container">
+        <div className="botone" style={{ top: '-105px', position: 'relative', left: '120px' }}>
+          {productos.map((producto) => (
+            <Button key={producto._id} className="produc">
+              <img src={imagenesCategoria[categoriaSeleccionada]} className="productos" style={{ width: '110px' }} alt={categoriaSeleccionada} />
+              <p>{producto.sabor}</p>
+              <p>${producto.precioVenta}</p>
             </Button>
-
-            <Button className="boton7">
-            <img src={Helado} className="conos"/>
-            <p>Home</p>
-            </Button>
-
-            <Button className="boton8">
-            <img src={Helado} className="conos"/>
-            <p>Home</p>
-            </Button>
-            
-            <Button className="boton8" style={{ left: '155px' }}>
-            <img src={Helado} className="conos"/>
-            <p>Home</p>
-            </Button>
-
-            <Button className="boton8" style={{ left: '185px' }}>
-            <img src={Helado} className="conos"/>
-            <p>Home</p>
-            </Button>
-          </div>
-
-          <br />
-            <p className="menuss"><strong>Elegir</strong> Orden</p>
-
-            <div>
-            <NavDropdown className="navdropdowns" title={<span style={{ fontSize: '35px' }}>Ordenar Por</span>}  id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Popular</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Crema
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Agua</NavDropdown.Item>
-            </NavDropdown>
-            </div>
-
-            <div className="botone" style={{ top: '-105px', position: 'relative', left: '120px' }}>
-            <Button className="produc">
-            <img src={Helado} className="productos" style={{ width: '110px' }}/>
-            <p>Home</p>
-            <p>$00.00</p>
-            </Button>
-
-            <Button className="produc2">
-            <img src={Helado} className="productos" style={{ width: '110px' }}/>
-            <p>Home</p>
-            <p>$00.00</p>
-            </Button>
-
-            <Button className="produc3">
-            <img src={Helado} className="productos" style={{ width: '110px' }}/>
-            <p>Home</p>
-            <p>$00.00</p>
-            </Button>
-
-            <br />
-            <br />
-
-            <Button className="produc">
-            <img src={Helado} className="productos" style={{ width: '110px' }}/>
-            <p>Home</p>
-            <p>$00.00</p>
-            </Button>
-
-            <Button className="produc2">
-            <img src={Helado} className="productos" style={{ width: '110px' }}/>
-            <p>Home</p>
-            <p>$00.00</p>
-            </Button>
-
-            <Button className="produc3">
-            <img src={Helado} className="productos" style={{ width: '110px' }}/>
-            <p>Home</p>
-            <p>$00.00</p>
-            </Button>
-            </div>
+          ))}
+        </div>
+      </div>
     </div>
-
   );
 }
 

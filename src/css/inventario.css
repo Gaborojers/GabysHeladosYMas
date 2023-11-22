@@ -420,3 +420,8 @@
 .navdropdown::title{
     font-size: 10px
 }
+.productos-container {
+    max-height: 400px; 
+    overflow-y: auto;
+    max-width: 90%;
+  }
