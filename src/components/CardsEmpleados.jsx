@@ -66,11 +66,6 @@ function App() {
         </Button>
       </Link>
 
-      <div className="search_container">
-        <input type="text" placeholder="Buscar Producto" className="mySearchBar" id="searchMobile" />
-        <i className="search_icon"></i>
-      </div>
-
       <div className="cards">
         {empleados.map((empleado, index) => (
           <div key={empleado._id} style={{  }}>
