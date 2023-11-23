@@ -62,7 +62,7 @@ function App() {
         <strong>Elegir</strong> Orden
       </p>
       <div className="scrollable-container">
-        <div className="botone" style={{ top: '-105px', position: 'relative', left: '120px' }}>
+        <div className="botone" style={{ top: '-105px', position: 'relative', left: '120px', marginTop:"8%", marginRight:"15%"}}>
           {productos.map((producto) => (
             <Button key={producto._id} className="produc">
               <img src={imagenesCategoria[categoriaSeleccionada]} className="productos" style={{ width: '110px' }} alt={categoriaSeleccionada} />
