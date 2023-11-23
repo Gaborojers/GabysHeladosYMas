@@ -437,3 +437,9 @@
     left: 275px;
     font-size: 20px;
 }
+
+.scrollable-container {
+    max-height: 450px; 
+    overflow-y: auto;
+    max-width: 60%;
+  }

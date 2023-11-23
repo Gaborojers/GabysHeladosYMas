@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import '../css/login.css';
 import { Container, Row, Col } from "react-bootstrap";
 import LoginForm from "../components/LoginForm";
@@ -7,10 +10,41 @@ import '../css/login.css';
 
 /*
 import Perfil from '../assets/img/rectangle_7.png';
-import Button from 'react-bootstrap/esm/Button';
-*/
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-function Login() {
+function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    axios.post('http://localhost:3000/empleados/login', { correo: email, contraseña: password })
+    .then((response) => {
+        navigate('/Home');
+      })
+      .catch((error) => {
+        if (error.response) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Credenciales incorrectas. Inténtalo de nuevo.',
+          });
+        } else if (error.request) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error al conectar con el servidor. Por favor, inténtalo más tarde.',
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error desconocido. Por favor, inténtalo de nuevo.',
+          });
+        }
+      });
+  };
 
   return (
     <Container fluid className="contenedor pagina">
