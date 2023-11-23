@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Helado from '../assets/img/4534108-removebg-preview.png';
-import Paleta from "../assets/img/3132683.png";
-import Bebidas from "../assets/img/813e5fa18d1433b42458bb3c48537caa.png";
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import axios from 'axios';
+
 
 function App() {
   const [productos, setProductos] = useState([]);
