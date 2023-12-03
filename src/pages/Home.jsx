@@ -13,12 +13,41 @@ import Bebidas from "../assets/img/813e5fa18d1433b42458bb3c48537caa.png";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 function App() {
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
   const [productos, setProductos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('helados');
   const [totalVenta, setTotalVenta] = useState(0);
+  const [ventas, setVentas] = useState([]);
+
+  useEffect(() => {
+    obtenerVentas();
+  }, []);
+
+  const obtenerVentas = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/ventas/'); 
+      setVentas(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const generarPDF = () => {
+    const doc = new jsPDF();
+    const columns = ['Fecha de Venta', 'Total de Venta','Productos Vendidos'];
+    const data = [];
+
+    ventas.forEach((venta) => {
+      data.push([venta.fechaVenta, venta.totalVenta,venta.nombres]);
+    });
+
+    doc.autoTable({ columns, body: data });
+    doc.save('ventas.pdf');
+  };
 
   const handleIncrement = (producto) => {
     setProductosSeleccionados((prevProductosSeleccionados) => {
@@ -50,7 +79,6 @@ function App() {
       total += subtotal;
     });
     setTotalVenta(total);
-    console.log(totalVenta)
     if (productosSeleccionados.length === 0) {
       Swal.fire('Error', 'Debe seleccionar al menos un producto', 'error');
       return;
@@ -65,12 +93,17 @@ function App() {
     axios.post('http://localhost:3000/ventas/agregarVenta', ventaData)
       .then(() => {
         Swal.fire('Éxito', 'Venta realizada correctamente', 'success');
-      })
+        }
+      )
       .catch(() => {
         Swal.fire('Error', 'Ocurrió un error al guardar la venta', 'error');
       });
+      generarPDF()
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
   };
-
+   
   const obtenerFechaVenta = () => {
     const fechaActual = new Date();
     const dia = fechaActual.getDate();
@@ -84,6 +117,7 @@ function App() {
     paleta: Paleta,
     bebidas: Bebidas
   };
+
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
@@ -97,6 +131,17 @@ function App() {
     obtenerProductos();
   }, [categoriaSeleccionada]);
 
+  useEffect(() => {
+    const totalVentaCalculado = productosSeleccionados.reduce((total, producto) => {
+      const precioVenta = producto.precioVenta;
+      const cantidadVendida = producto.vendidos;
+      const subtotal = precioVenta * cantidadVendida;
+      return total + subtotal;
+    }, 0);
+
+    setTotalVenta(totalVentaCalculado);
+  }, [productosSeleccionados]);
+  
   const obtenerProductosPorCategoria = async (categoria) => {
     try {
       const response = await axios.get(`http://localhost:3000/${categoria}`);
@@ -200,6 +245,11 @@ function App() {
             </Button>
           </div>
         ))}
+        <br />
+        <div className="chispas" style={{ marginBottom: '10px', marginTop: "18px" }}>
+          <p className="letra">Precio Total:</p>
+          <span className='cifra'>${totalVenta}</span>
+        </div>
         <br />
         <button className="cancelar" onClick={handleCancelar}><p className="letra">Cancelar</p></button>
         <button className="aceptar" onClick={handleAceptar}><p className="letra">Aceptar</p></button>

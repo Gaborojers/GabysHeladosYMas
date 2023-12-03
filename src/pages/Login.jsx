@@ -89,11 +89,11 @@ function App() {
 
         <div className="moverBoton">
           <Button
-            className="botones"
+            className="botonInicio"
             style={{ backgroundColor: 'lightpink' }}
             onClick={handleLogin}
           >
-            <span className="palabras">Start</span>
+            <span className="palabras">Inicio de sesion</span>
           </Button>
         </div>
       </div>
