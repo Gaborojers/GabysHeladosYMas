@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../css/historial.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuLateral from '../components/MenuLateral';
@@ -7,14 +7,24 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Imagenes from '../components/Imagenes';
 import HistorialTabla from '../components/HistorialTabla';
 import UserInfo from '../components/UserInfo';
+import axios from 'axios';
 
 function App() {
-  const historialDeCambios = [
-    { usuario: 'Usuario 1', cambio: 'Cambio 1' },
-    { usuario: 'Usuario 2', cambio: 'Cambio 2' },
-    { usuario: 'Usuario 3', cambio: 'Cambio 3' },
-    // Agrega más entradas de historial según tus necesidades
-  ];
+  const [Historial, setHistorial] = useState([]);
+
+  useEffect(() => {
+    obtenerHistorial();
+  }, []);
+
+  const obtenerHistorial = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/historial/obtenerTodo');
+      const data = response.data;
+      setHistorial(data);
+    } catch (error) {
+      console.error('Error al obtener el historial:', error);
+    }
+  };
 
     return (
         <div>
@@ -32,7 +42,7 @@ function App() {
           </div>
 
           <div className='historial'>
-          <HistorialTabla historial={historialDeCambios} />
+          <HistorialTabla historial={Historial} />
           </div>
         </div>
       </div>

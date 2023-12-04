@@ -85,3 +85,6 @@ font-style: italic; /* Cambia el estilo de fuente del texto del placeholder (por
   top: 180px;
   width: 150px;
 }
+.botonInicio{
+  margin-top: 130%;
+}
