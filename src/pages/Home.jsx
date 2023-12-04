@@ -15,6 +15,9 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import Chat from '../components/Chat';import { io } from 'socket.io-client';
+
+const socket = io('http://localhost:3000'); 
 
 function App() {
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
@@ -23,13 +26,14 @@ function App() {
   const [totalVenta, setTotalVenta] = useState(0);
   const [ventas, setVentas] = useState([]);
 
+
   useEffect(() => {
     obtenerVentas();
   }, []);
 
   const obtenerVentas = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/ventas/'); 
+      const response = await axios.get('http://localhost:3000/ventas/');
       setVentas(response.data);
     } catch (error) {
       console.error(error);
@@ -38,11 +42,11 @@ function App() {
 
   const generarPDF = () => {
     const doc = new jsPDF();
-    const columns = ['Fecha de Venta', 'Total de Venta','Productos Vendidos'];
+    const columns = ['Fecha de Venta', 'Total de Venta', 'Productos Vendidos'];
     const data = [];
 
     ventas.forEach((venta) => {
-      data.push([venta.fechaVenta, venta.totalVenta,venta.nombres]);
+      data.push([venta.fechaVenta, venta.totalVenta, venta.nombres]);
     });
 
     doc.autoTable({ columns, body: data });
@@ -83,27 +87,27 @@ function App() {
       Swal.fire('Error', 'Debe seleccionar al menos un producto', 'error');
       return;
     }
-  
+
     const ventaData = {
       fechaVenta: obtenerFechaVenta(),
       totalVenta: totalVenta,
       nombres: productosSeleccionados.map((producto) => producto.sabor),
     };
-  
+    socket.emit('ventaRealizada', ventaData);
     axios.post('http://localhost:3000/ventas/agregarVenta', ventaData)
       .then(() => {
         Swal.fire('Éxito', 'Venta realizada correctamente', 'success');
-        }
+      }
       )
       .catch(() => {
         Swal.fire('Error', 'Ocurrió un error al guardar la venta', 'error');
       });
-      generarPDF()
-      setTimeout(() => {
-        window.location.reload();
-      }, 1500);
+    generarPDF()
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   };
-   
+
   const obtenerFechaVenta = () => {
     const fechaActual = new Date();
     const dia = fechaActual.getDate();
@@ -141,7 +145,7 @@ function App() {
 
     setTotalVenta(totalVentaCalculado);
   }, [productosSeleccionados]);
-  
+
   const obtenerProductosPorCategoria = async (categoria) => {
     try {
       const response = await axios.get(`http://localhost:3000/${categoria}`);
@@ -195,9 +199,8 @@ function App() {
         <Imagenes />
         <p className="menuss"><strong>Menú</strong> Categorías</p>
 
-        <br/>
-        <br/>
-
+        <br />
+        <br />
         <div>
           <div className="heladoss">
             <Button className={categoriaSeleccionada === 'paleta' ? 'boton7 active' : 'boton7'} onClick={() => obtenerProductosPorCategoria('paleta')}>
@@ -253,6 +256,8 @@ function App() {
         <br />
         <button className="cancelar" onClick={handleCancelar}><p className="letra">Cancelar</p></button>
         <button className="aceptar" onClick={handleAceptar}><p className="letra">Aceptar</p></button>
+
+        <Chat />
       </div>
     </div>
 

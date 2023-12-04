@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,9 +8,11 @@ import '../css/login.css';
 import Logo from '../assets/img/95ed7030_76ee_4be3_a6f3_abae123215b4_photoroom_1.png';
 import Perfil from '../assets/img/rectangle_7.png';
 
+
 function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const navigate = useNavigate();
 
   const obtenerFechaHoraActual = () => {
@@ -38,7 +40,9 @@ function App() {
         fecha: fechaHoraActual
       };
       await axios.post('http://localhost:3000/historial/agregarHistorial', historial)
-      navigate('/Home')
+      setInterval(() => {
+        navigate('/Home')
+      }, 5000);
     } catch (error) {
       if (error.response) {
         Swal.fire({
