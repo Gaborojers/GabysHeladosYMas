@@ -7,6 +7,25 @@ import Imagenes from '../components/Imagenes';
 import '../css/ayuda.css';
 
 function App() {
+    const descargarPDF = () => {
+        // Ruta relativa al archivo PDF en la carpeta public
+        const pdfUrl = '/public/Manual de Usuario - Gaby´s Helados Y Más.pdf';
+    
+        // Crea un enlace temporal
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'Manual de Usuario - Gaby´s Helados Y Más.pdf'; // Nombre del archivo a descargar
+    
+        // Simula un clic en el enlace para iniciar la descarga
+        document.body.appendChild(link);
+        link.click();
+    
+        // Elimina el enlace temporal
+        document.body.removeChild(link);
+      };
+
+      const videoUrl = 'https://www.youtube.com/playlist?list=PLUxy8vsgGDoXZ3CqyBs4_MO4Se1Jr_4rW';
+
     return (
         <div>
             <MenuLateral />
@@ -27,17 +46,19 @@ function App() {
                 </div>
 
                 <div className='buttons' style={{ top: '-65px', position: 'relative' }}>
-                    <Button variant="primary" className='manual'>
+                    <Button onClick={descargarPDF} variant="primary" className='manual'>
                         <BiBook className='book' />
                         <p style={{ fontSize: '20px' }}>Manual de Usuario</p>
                     </Button>
 
                     <br />
 
-                    <Button variant="danger" className='video'>
-                        <BiPlayCircle className='play' />
-                        <p style={{ fontSize: '21px' }}>Videos Tutoriales</p>
-                    </Button>
+                    <a href={videoUrl} target="_blank" rel="noopener noreferrer" className='video-link'>
+                        <Button className='video'>
+                            <BiPlayCircle className='play' />
+                            <p style={{ fontSize: '21px' }}>Videos Tutoriales</p>
+                        </Button>
+                    </a>
                 </div>
             </div>
         </div>  
