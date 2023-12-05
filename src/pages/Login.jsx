@@ -39,10 +39,8 @@ function App() {
         nombre: nombreEmpleado,
         fecha: fechaHoraActual
       };
-      await axios.post('https://api-multi-gabys.onrender.com/historial/agregarHistorial', historial)
-      setInterval(() => {
+          await axios.post('https://api-multi-gabys.onrender.com/historial/agregarHistorial', historial)
         navigate('/Home')
-      }, 8000);
     } catch (error) {
       if (error.response) {
         Swal.fire({

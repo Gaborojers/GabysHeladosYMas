@@ -22,7 +22,7 @@ function App() {
       const data = response.data;
       setHistorial(data);
     } catch (error) {
-      console.error('Error al obtener el historial:', error);
+      console.error('Error al obtener el historial de ingresos:', error);
     }
   };
 
