@@ -8,6 +8,7 @@ const socket = io("https://api-multi-gabys.onrender.com")
 function Chat() {
   const [nuevoMensaje, setNuevoMensaje] = useState("")
   const [mensajes, setmensajes] = useState([])
+  const [ventas, setVentas]=useState([])
 
   const enviarMensaje = () => {
     socket.emit("envioMensaje", {
@@ -22,12 +23,16 @@ function Chat() {
     })
 
     socket.on("ventaRealizada", (ventaData) => {
-      setmensajes(mensajes => [...mensajes, {
+      const nuevaVenta = {
         usuario: "Sistema",
         mensaje: `Se ha realizado una venta de ${ventaData.totalVenta} por ${ventaData.nombres}.`,
         fechaVenta: ventaData.fechaVenta,
-      }])
-    })
+      };
+    
+      setVentas((ventas) => [...ventas, nuevaVenta]);
+
+      alert(`Se ha realizado una venta de ${ventaData.totalVenta} por ${ventaData.nombres}.`);
+    });
 
     return () => {
       socket.off("envioMensaje")
