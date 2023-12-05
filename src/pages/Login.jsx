@@ -24,7 +24,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/empleados/login', {
+      const response = await axios.post('https://api-multi-gabys.onrender.com/empleados/login', {
         correo: email,
         contraseña: password
       });
@@ -39,10 +39,10 @@ function App() {
         nombre: nombreEmpleado,
         fecha: fechaHoraActual
       };
-      await axios.post('http://localhost:3000/historial/agregarHistorial', historial)
+      await axios.post('https://api-multi-gabys.onrender.com/historial/agregarHistorial', historial)
       setInterval(() => {
         navigate('/Home')
-      }, 5000);
+      }, 8000);
     } catch (error) {
       if (error.response) {
         Swal.fire({

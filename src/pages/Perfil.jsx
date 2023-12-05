@@ -42,7 +42,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/empleados/agregar', empleado)
+    axios.post('https://api-multi-gabys.onrender.com/empleados/agregar', empleado)
       .then((response) => {
         Swal.fire({
           title: 'Empleado agregado exitosamente',

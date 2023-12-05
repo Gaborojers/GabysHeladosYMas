@@ -20,7 +20,7 @@ function App() {
 
   const obtenerVentas = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/ventas/'); 
+      const response = await axios.get('https://api-multi-gabys.onrender.com/ventas/'); 
       setVentas(response.data);
     } catch (error) {
       console.error(error);
