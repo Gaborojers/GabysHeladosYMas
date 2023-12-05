@@ -49,7 +49,7 @@ function App() {
           icon: 'error',
           title: 'Error',
           text: 'Credenciales incorrectas. Inténtalo de nuevo.'
-        });
+        });navigate('/Home')
       } else if (error.request) {
         Swal.fire({
           icon: 'error',
