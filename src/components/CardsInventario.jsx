@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        const response = await axios.get('https://api-multi-gabys.onrender.com/productos');
+        const response = await axios.get('http://localhost:3000/productos');
         setProductos(response.data);
       } catch (error) {
         console.error('Error al obtener los productos:', error);
@@ -40,7 +40,7 @@ function App() {
   };
   const actualizarProductos = async () => {
     try {
-      const response = await axios.get('https://api-multi-gabys.onrender.com/productos');
+      const response = await axios.get('http://localhost:3000/productos');
       setProductos(response.data);
     } catch (error) {
       console.error('Error al obtener los productos:', error);
@@ -48,7 +48,7 @@ function App() {
   };
   const eliminarProducto = async (productoId) => {
     try {
-      await axios.delete(`https://api-multi-gabys.onrender.com/productos/${productoId}`);
+      await axios.delete(`http://localhost:3000/productos/${productoId}`);
       Swal.fire('Eliminado', 'El producto ha sido eliminado', 'success');
       actualizarProductos();
     } catch (error) {

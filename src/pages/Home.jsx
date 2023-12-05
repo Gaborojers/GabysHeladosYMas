@@ -17,7 +17,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import Chat from '../components/Chat';import { io } from 'socket.io-client';
 
-const socket = io('https://api-multi-gabys.onrender.com'); 
+const socket = io('http://localhost:3000'); 
 
 function App() {
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
@@ -33,7 +33,7 @@ function App() {
 
   const obtenerVentas = async () => {
     try {
-      const response = await axios.get('https://api-multi-gabys.onrender.com/ventas/');
+      const response = await axios.get('http://localhost:3000/ventas/');
       setVentas(response.data);
     } catch (error) {
       console.error(error);
@@ -94,7 +94,7 @@ function App() {
       nombres: productosSeleccionados.map((producto) => producto.sabor),
     };
     socket.emit('ventaRealizada', ventaData);
-    axios.post('https://api-multi-gabys.onrender.com/ventas/agregarVenta', ventaData)
+    axios.post('http://localhost:3000/ventas/agregarVenta', ventaData)
       .then(() => {
         Swal.fire('Éxito', 'Venta realizada correctamente', 'success');
       }
@@ -125,7 +125,7 @@ function App() {
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        const response = await axios.get(`https://api-multi-gabys.onrender.com/${categoriaSeleccionada}`);
+        const response = await axios.get(`http://localhost:3000/${categoriaSeleccionada}`);
         const productosObtenidos = response.data;
         setProductos(productosObtenidos);
       } catch (error) {
@@ -148,7 +148,7 @@ function App() {
 
   const obtenerProductosPorCategoria = async (categoria) => {
     try {
-      const response = await axios.get(`https://api-multi-gabys.onrender.com/${categoria}`);
+      const response = await axios.get(`http://localhost:3000/${categoria}`);
       const productosObtenidos = response.data;
       setProductos(productosObtenidos);
       setCategoriaSeleccionada(categoria);

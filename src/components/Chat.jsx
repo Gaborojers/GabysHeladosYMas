@@ -3,7 +3,7 @@ import { Button, Form, FormControl } from 'react-bootstrap';
 import { io } from 'socket.io-client';
 import '../css/chat.css';
 
-const socket = io("https://api-multi-gabys.onrender.com")
+const socket = io("http://localhost:3000")
 
 function Chat() {
   const [nuevoMensaje, setNuevoMensaje] = useState("")

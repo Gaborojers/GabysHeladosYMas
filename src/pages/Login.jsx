@@ -24,7 +24,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://api-multi-gabys.onrender.com/empleados/login', {
+      const response = await axios.post('http://localhost:3000/empleados/login', {
         correo: email,
         contraseña: password
       });
@@ -39,7 +39,7 @@ function App() {
         nombre: nombreEmpleado,
         fecha: fechaHoraActual
       };
-      await axios.post('https://api-multi-gabys.onrender.com/historial/agregarHistorial', historial)
+      await axios.post('http://localhost:3000/historial/agregarHistorial', historial)
       setInterval(() => {
         navigate('/Home')
       }, 8000);

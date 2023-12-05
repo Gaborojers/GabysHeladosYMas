@@ -20,7 +20,7 @@ function App() {
 
   const obtenerEmpleados = async () => {
     try {
-      const response = await fetch('https://api-multi-gabys.onrender.com/empleados/obtener');
+      const response = await fetch('http://localhost:3000/empleados/obtener');
       const data = await response.json();
       setEmpleados(data);
     } catch (error) {
@@ -30,7 +30,7 @@ function App() {
 
   const eliminarEmpleado = async (empleado) => {
     try {
-      await axios.delete(`https://api-multi-gabys.onrender.com/empleados/eliminar/${empleado._id}`);
+      await axios.delete(`http://localhost:3000/empleados/eliminar/${empleado._id}`);
       Swal.fire('Empleado eliminado', 'El empleado ha sido eliminado exitosamente', 'success');
       obtenerEmpleados();
     } catch (error) {
