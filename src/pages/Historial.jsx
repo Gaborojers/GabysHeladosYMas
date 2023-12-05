@@ -18,7 +18,7 @@ function App() {
 
   const obtenerHistorial = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/historial/obtenerTodo');
+      const response = await axios.get('https://api-multi-gabys.onrender.com/obtenerTodo');
       const data = response.data;
       setHistorial(data);
     } catch (error) {
